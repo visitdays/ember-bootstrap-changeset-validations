@@ -11,7 +11,7 @@ export default BsForm.extend({
     let m = model;
 
     Ember.assert('Model must be a Changeset instance', m && typeof m.validate === 'function');
-    return m.get('isValid') ? RSVP.resolve() : RSVP.reject();
+    return m.validate();
   },
 
   _initValidation: on('init', observer('model', function() {
